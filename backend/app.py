@@ -9,7 +9,7 @@ def create_app():
     """
     Creates and configures the Fllask application with OpenAPI3.0 integrated.
     """
-
+    # metadata
     info = {
         'title': 'Bibliotek',
         'version': '1.0',
@@ -38,3 +38,28 @@ def create_app():
         "swagger_ui": True,
         "specs_route": "/apidocs/"
     }
+
+    swagger_template = {
+        "info": {
+            "title": "Bibliotek",
+            "description": "Open-source library project with public domain books built with flask.",
+            "version": "1.0",
+        },
+        "schemes": ["http"],
+        "tags": [
+            {
+                "name": "Book",
+                "description": "Operações relacionadas a produtos"
+            },
+            {
+                "name": "User",
+                "description": "Operações relacionadas a usuários"
+            },
+            
+        ]
+    }
+
+    # Inicializar Swagger
+    Swagger(app, config=swagger_config, template=swagger_template)
+
+    
