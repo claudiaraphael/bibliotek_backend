@@ -1,2 +1,4 @@
+flasgger
 flask
+flask-cors
 flask-sqlalchemy
