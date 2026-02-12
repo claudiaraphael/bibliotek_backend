@@ -1,6 +1,7 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 from flasgger import Swagger
+from extensions import db
 
 # import data models
 
@@ -62,4 +63,5 @@ def create_app():
     # Inicializar Swagger
     Swagger(app, config=swagger_config, template=swagger_template)
 
-    
+    # db.init_app(app) initializes the SQLAlchemy database with the Flask app
+    db.init_app(app)
