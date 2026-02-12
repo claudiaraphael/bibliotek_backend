@@ -65,3 +65,14 @@ def create_app():
 
     # db.init_app(app) initializes the SQLAlchemy database with the Flask app
     db.init_app(app)
+
+    # CORS Configuration: connect front end to back end
+    CORS(app, resources={
+        r"/*": {
+            "origins": ["http://127.0.0.1:5500"],  # Frontend origin
+            "methods": ["GET", "POST", "PUT", "DELETE", "PATCH"],
+            "allow_headers": ["Content-Type", "Authorization"]
+        }
+    })
+
+    
